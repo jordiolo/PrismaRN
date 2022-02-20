@@ -52,6 +52,8 @@ type IPsecTunnel struct {
 	Comment                string   `xml:"comment,omitempty"`
 }
 
+
+
 type entries struct {
 	Text                      string `xml:",chardata"`
 	Name                      string `xml:"name,attr"`
