@@ -62,7 +62,7 @@ func createremotenetwork(data Data) {
 	if data.config.Panorama.Tenant_name == "" {
 		xpath = "/config/devices/entry[@name='localhost.localdomain']/plugins/cloud_services/remote-networks/onboarding"
 	} else {
-		xpath = "/config/devices/entry[@name='localhost.localdomain']/plugins/cloud_services/" + "<multi-tenant><tenants><entry name='" + data.config.Panorama.Tenant_name + "/remote-networks/onboarding"
+		xpath = "/config/devices/entry[@name='localhost.localdomain']/plugins/cloud_services/" + "multi-tenant/tenants/entry[@name='" + data.config.Panorama.Tenant_name + "']/remote-networks/onboarding"
 	}
 	pushPanorama(xpath, data.apiconn, rnXML, "IpSec Tunnel: "+rnName)
 }
@@ -87,6 +87,6 @@ func main() {
 		log.Println("##############################################################################  Start Config Remote Network, row: ", data.counter)
 		createremotenetwork(data)
 	}
-	log.Println("##############################################################################  Process finished, Total RN configured", data.counter)
+	log.Println("##############################################################################   Process finished, Total RN configured", data.counter)
 
 }
